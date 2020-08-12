@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM arm64v8/node:12-alpine
 
 ENV NODE_ENV=production
 ENV NODE_PATH=/usr/local/lib/node_modules
