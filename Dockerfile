@@ -1,4 +1,4 @@
-FROM arm64v8/node:12-alpine
+FROM node:lts-alpine
 
 ENV NODE_ENV=production
 ENV NODE_PATH=/usr/local/lib/node_modules
@@ -8,3 +8,4 @@ COPY server.js .
 CMD ["node", "server.js"]
 
 EXPOSE 8080
+
