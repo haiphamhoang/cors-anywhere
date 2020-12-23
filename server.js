@@ -1,4 +1,4 @@
-var fs = require('fs')
+var fs = require('fs');
 
 // Listen on a specific host via the HOST environment variable
 var host = process.env.HOST || '0.0.0.0';
@@ -36,7 +36,7 @@ function readTLSContent(tls) {
   };
 }
 
-var cors_proxy = require('cors-anywhere');
+var cors_proxy = require('cors-anywhere/lib/cors-anywhere');
 cors_proxy.createServer({
   originBlacklist: originBlacklist,
   originWhitelist: originWhitelist,
@@ -46,10 +46,15 @@ cors_proxy.createServer({
     'cookie',
     'cookie2',
     // Strip Heroku-specific headers
-    'x-heroku-queue-wait-time',
-    'x-heroku-queue-depth',
-    'x-heroku-dynos-in-use',
     'x-request-start',
+    'x-request-id',
+    'via',
+    'connect-time',
+    'total-route-time',
+    // Other Heroku added debug headers
+    // 'x-forwarded-for',
+    // 'x-forwarded-proto',
+    // 'x-forwarded-port',
   ],
   redirectSameOrigin: true,
   httpProxyOptions: {
