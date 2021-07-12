@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM node:lts-alpine3.14
 
 ENV NODE_ENV=production
 ENV NODE_PATH=/usr/local/lib/node_modules
@@ -11,3 +11,4 @@ ENTRYPOINT ["/sbin/tini", "--"]
 CMD ["node", "server.js"]
 
 EXPOSE 8080
+

@@ -1,7 +1,7 @@
 # 7a6163/cors-anywhere
 
 [![docker build automated](https://img.shields.io/docker/cloud/automated/7a6163/cors-anywhere.svg)](https://hub.docker.com/r/7a6163/cors-anywhere "7a6163/cors-anywhere")
-[![](https://images.microbadger.com/badges/image/7a6163/cors-anywhere.svg)](https://microbadger.com/images/7a6163/cors-anywhere "7a6163/cors-anywhere")
+![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/7a6163/cors-anywhere?sort=date)(https://hub.docker.com/r/7a6163/cors-anywhere "7a6163/cors-anywhere")
 
 The docker image for [cors-anywhere](https://github.com/Rob--W/cors-anywhere).
 
@@ -27,4 +27,5 @@ CORSANYWHERE_RATELIMIT | | Format: `<max requests per period> <period in minutes
 
 This repository is licensed under [MIT](LICENSE).
 
-[cors-anywhere](https://github.com/Rob--W/cors-anywhere#license) is `Copyright (C) 2013 - 2016 Rob Wu rob@robwu.nl`
+[cors-anywhere](https://github.com/Rob--W/cors-anywhere#license) is `Copyright (C) 2013 - 2021 Rob Wu rob@robwu.nl`
+
