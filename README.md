@@ -1,6 +1,6 @@
 # 7a6163/cors-anywhere
 
-[![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/7a6163/cors-anywhere?sort=date)](https://hub.docker.com/r/7a6163/cors-anywhere "7a6163/cors-anywhere")
+[![Docker Image Size (tag)](https://img.shields.io/docker/image-size/7a6163/cors-anywhere/latest)](https://hub.docker.com/r/7a6163/cors-anywhere "7a6163/cors-anywhere")
 
 The docker image for [cors-anywhere](https://github.com/Rob--W/cors-anywhere).
 
@@ -40,4 +40,10 @@ services:
 This repository is licensed under [MIT](LICENSE).
 
 [cors-anywhere](https://github.com/Rob--W/cors-anywhere#license) is `Copyright (C) 2013 - 2021 Rob Wu rob@robwu.nl`
+
+## DONATE
+
+If you want to support the project, you can buy the developer a coffee.
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/7a6163)
 
