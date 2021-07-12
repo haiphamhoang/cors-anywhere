@@ -1,13 +1,12 @@
 # 7a6163/cors-anywhere
 
-[![docker build automated](https://img.shields.io/docker/cloud/automated/7a6163/cors-anywhere.svg)](https://hub.docker.com/r/7a6163/cors-anywhere "7a6163/cors-anywhere")
-![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/7a6163/cors-anywhere?sort=date)(https://hub.docker.com/r/7a6163/cors-anywhere "7a6163/cors-anywhere")
+[![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/7a6163/cors-anywhere?sort=date)](https://hub.docker.com/r/7a6163/cors-anywhere "7a6163/cors-anywhere")
 
 The docker image for [cors-anywhere](https://github.com/Rob--W/cors-anywhere).
 
 ### Run
 
-```
+```bash
 docker run --rm 7a6163/cors-anywhere
 ```
 
@@ -22,6 +21,19 @@ CORSANYWHERE_BLACKLIST | | If set, requests whose origin is listed are blocked.<
 CORSANYWHERE_WHITELIST | | If set, requests whose origin is not listed are blocked.<br>If this list is empty, all origins are allowed.<br>Comma separated. Example: `https://good.example.com,http://good.example.com`
 CORSANYWHERE_RATELIMIT | | Format: `<max requests per period> <period in minutes> <non-ratelimited hosts>`<br>For example, to blacklist abuse.example.com and rate-limit everything to 50 requests per 3 minutes, except for my.example.com and my2.example.com (which may be unlimited), use:<br>`50 3 my.example.com my2.example.com`
 
+### docker compose version
+
+```yaml
+version: '3'
+
+services:
+  app:
+    image: 7a6163/cors-anywhere
+    container_name: cors-anywhere
+    environment:
+      - CORSANYWHERE_WHITELIST=http://test.domain
+    restart: unless-stopped
+```
 
 ## LICENSE
 
