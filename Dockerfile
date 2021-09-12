@@ -7,8 +7,9 @@ RUN apk add --no-cache tini=0.19.0-r0 && npm install -g cors-anywhere@$version
 WORKDIR /app
 COPY server.js .
 
+HEALTHCHECK --interval=60s --timeout=30s --start-period=30s CMD node /healthcheck.js
+
 ENTRYPOINT ["/sbin/tini", "--"]
 CMD ["node", "server.js"]
 
 EXPOSE 8080
-
