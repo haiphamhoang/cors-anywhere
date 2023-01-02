@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    image: cors-anywhere
+    ports:
+      - "8080:8080"
+    environment:
+      - CORSANYWHERE_PATH=/proxy
+    restart: unless-stopped

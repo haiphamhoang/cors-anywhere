@@ -1,9 +1,14 @@
 var fs = require('fs');
-
+const express = require("express");
+const app = express();
 // Listen on a specific host via the HOST environment variable
 var host = process.env.HOST || '0.0.0.0';
 // Listen on a specific port via the PORT environment variable
 var port = process.env.PORT || 8080;
+var applicationPath = process.env.CORSANYWHERE_PATH || '';
+if (process.env.CORSANYWHERE_PATH) {
+  applicationPath = '/' + applicationPath.replace(/\//g, '');
+}
 
 // Grab the blacklist from the command-line so that we can update the blacklist without deploying
 // again. CORS Anywhere is open by design, and this blacklist is not used, except for countering
@@ -36,8 +41,8 @@ function readTLSContent(tls) {
   };
 }
 
-var cors_proxy = require('cors-anywhere/lib/cors-anywhere');
-cors_proxy.createServer({
+var corsAnywhere = require('cors-anywhere/lib/cors-anywhere');
+var corsServer = corsAnywhere.createServer({
   originBlacklist: originBlacklist,
   originWhitelist: originWhitelist,
   requireHeader: ['origin', 'x-requested-with'],
@@ -64,6 +69,13 @@ cors_proxy.createServer({
   httpsOptions: httpsOptions,
   helpFile: 'customHelpText.txt',
   corsMaxAge: 300
-}).listen(port, host, function() {
-  console.log('Running CORS Anywhere on ' + host + ':' + port);
+});
+
+app.get(applicationPath + '*', (req, res, next) => {
+  req.url = req.url.replace(applicationPath, ''); 
+  corsServer.emit('request', req, res);
+});
+
+app.listen(port, host, () => {
+  console.log('Running CORS Anywhere on ' + host + ':' + port + applicationPath);
 });
