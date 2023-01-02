@@ -62,6 +62,8 @@ cors_proxy.createServer({
     xfwd: false,
   },
   httpsOptions: httpsOptions,
+  helpFile: 'customHelpText.txt',
+  corsMaxAge: 300
 }).listen(port, host, function() {
   console.log('Running CORS Anywhere on ' + host + ':' + port);
 });
